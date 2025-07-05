@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Footer() {
   return (
-<ul className="flex justify-around items-center menu menu-horizontal bg-base-300 rounded-box mt-6 h-24 w-full absolute bottom-0">
+<ul className="flex justify-around items-center menu menu-horizontal bg-gray-300 rounded-box mt-6 h-24 w-full fixed bottom-0">
   <li>
     <a className="tooltip" data-tip="Home">
       <svg

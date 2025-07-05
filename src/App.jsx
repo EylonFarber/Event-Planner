@@ -6,7 +6,7 @@ import Footer from "./Layout/Footer";
 import Home from "./routes/Home";
 import SignIn from "./routes/SignIn";
 import SignUp from "./routes/SignUp";
-import CreateEvent from "./SignUp.jsx/CreateEvent";
+import CreateEvent from "./routes/CreateEvent";
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
         <Route path="eventdetails" element={<EventDetails />} />
         <Route path="createevent" element={<CreateEvent />} />
       </Routes>
-      <Link to={"/eventdetails"}>link</Link>
+      {/* <Link to={"/eventdetails"}>link</Link> */}
       <Footer />
     </>
   );
