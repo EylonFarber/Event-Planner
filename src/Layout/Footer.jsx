@@ -1,9 +1,25 @@
 import React from "react";
+import { Routes, Route, Link } from "react-router";
+
+import Home from "/routes/Home";
+import SignIn from "/routes/SignIn";
+import SignUp from "./routes/SignUp";
+import CreateEvent from "/routes/CreateEvent";
+import Error from "/routes/Error";
 
 export default function Footer() {
   return (
+    <div>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="signin" element={<SignIn />} />
+            <Route path="signup" element={<SignUp />} />
+            <Route path="eventdetails" element={<EventDetails />} />
+            <Route path="createevent" element={<CreateEvent />} />
+            <Route path="*" element={<Error/>}/>
+          </Routes>
     <ul className="flex justify-around items-center menu menu-horizontal bg-gray-300 rounded-box mt-6 h-24 w-full fixed left-0 bottom-0 md:hidden">
-      <li>
+     <Link to={"/Home"} key = 'home'> <li> 
         <a className="tooltip" data-tip="Home">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -22,6 +38,8 @@ export default function Footer() {
         </a>
         <p className="text-[10px] self-center">Home</p>
       </li>
+            </Link>
+<Link to={"/Home"} key = 'explore'>
       <li>
         <a className="tooltip" data-tip="Explore">
           <svg
@@ -41,6 +59,8 @@ export default function Footer() {
         </a>
         <p className="text-[10px] self-center">Explore</p>
       </li>
+                  </Link>
+<Link to={"/routes/CreateEvent"} key = 'createEvent'>
       <li>
         <a className="tooltip" data-tip="create">
           <svg
@@ -60,6 +80,9 @@ export default function Footer() {
         </a>
         <p className="text-[10px] self-center">Create</p>
       </li>
+      
+                  </Link>
+<Link to={"/routes/Home"} key = 'notifications'>
       <li>
         <a className="tooltip" data-tip="Notifications">
           <svg
@@ -79,6 +102,8 @@ export default function Footer() {
         </a>
         <p className="text-[10px] self-center">Notifications</p>
       </li>
+                  </Link>
+<Link to={"/routes/Home"} key = 'profile'>
       <li>
         <a className="tooltip" data-tip="Profile">
           <svg
@@ -98,6 +123,14 @@ export default function Footer() {
         </a>
         <p className="text-[10px] self-center">Profile</p>
       </li>
+      </Link>
     </ul>
+    </div>
   );
 }
+
+        // <Route path="/" element={<Home />} />
+        // <Route path="signin" element={<SignIn />} />
+        // <Route path="signup" element={<SignUp />} />
+        // <Route path="eventdetails" element={<EventDetails />} />
+        // <Route path="createevent" element={<CreateEvent />} />
