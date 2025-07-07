@@ -13,7 +13,7 @@ export default function Home() {
 
         <div className="carousel carousel-center rounded-box max-w-md space-x-2 py-4">
         
-          {TagsArray.MAP(i => (<div className="carousel-item">
+          {TagsArray.map(i => (<div className="carousel-item">
             <div className="badge badge-neutral badge-outline">Outline</div>
           </div>))}
 
