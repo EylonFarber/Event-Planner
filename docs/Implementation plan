@@ -90,7 +90,6 @@ In this phase, you'll focus purely on creating the visual structure of your appl
 - **Why it's important:** A working routing system is the backbone of any multi-page application.
 
 #### 2.2 Design Global Layout Elements
-<!-- -- Could not route throught footer - import is incorrect -->
  
 - **Action:**
   1.  Create your `Header.jsx` and `Footer.jsx` components in a `src/layouts` or `src/components/layout` folder.
