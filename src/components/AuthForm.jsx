@@ -2,9 +2,8 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 
-export default function AuthForm() {
-  const [isRegistered, setIsRegistered] = useState(true);
-
+export default function AuthForm({ isRegistered }) {
+  const navigate = useNavigate();
   function authFormhandler(e) {
     e.preventDefault();
 
@@ -12,6 +11,10 @@ export default function AuthForm() {
     const emailInput = e.target.email.value;
     const passwordInput = e.target.password.value;
     const repeatPasswordInput = e.target[3].value;
+
+    console.log(
+      `http://localhost:3001/api/${isRegistered ? "auth/login" : "users"}`
+    );
 
     // need to verify that password matches repeate password
     axios
@@ -23,26 +26,24 @@ export default function AuthForm() {
         }
       )
       .then((x) => {
-        if (x.data.token) {
+        if (x.data) {
           console.log(x.data.token);
 
-          // save token to LS
-          localStorage.setItem("userToken", JSON.stringify(x.data.token));
+          if (isRegistered) {
+            console.log("signin");
+            localStorage.setItem("userToken", JSON.stringify(x.data.token));
+            navigate("/createEvent");
+          } else {
+            console.log("signup");
 
-          setIsRegistered(true);
-          // console.log("Hello guys!");
-
-
-          // setIsUser(true)
-
-          // setLoading(false)
+            navigate("/signin");
+          }
         }
       })
       .catch((e) => {
-        console.log("Hi folks");
-        // setIsError(true)
-        //   setLoading(false)
         console.log("Error ");
+        console.log(e);
+        navigate("/");
       });
   }
   return (
@@ -55,15 +56,25 @@ export default function AuthForm() {
         {!isRegistered && (
           <>
             <label className="label">User Name</label>
-            <input type="email" className="input" placeholder="Email" />
+            <input type="text" className="input" placeholder="Email" />
           </>
         )}
 
         <label className="label">Email</label>
-        <input name="email" type="email" className="input" placeholder="Email" />
+        <input
+          name="email"
+          type="email"
+          className="input"
+          placeholder="Email"
+        />
 
         <label className="label">Password</label>
-        <input name="password" type="password" className="input" placeholder="Password" />
+        <input
+          name="password"
+          type="password"
+          className="input"
+          placeholder="Password"
+        />
 
         {!isRegistered && (
           <>
