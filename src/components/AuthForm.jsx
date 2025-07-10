@@ -12,10 +12,6 @@ export default function AuthForm({ isRegistered }) {
     const passwordInput = e.target.password.value;
     const repeatPasswordInput = e.target[3].value;
 
-    console.log(
-      `http://localhost:3001/api/${isRegistered ? "auth/login" : "users"}`
-    );
-
     // need to verify that password matches repeate password
     axios
       .post(
