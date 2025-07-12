@@ -111,9 +111,7 @@ In this phase, you'll focus purely on creating the visual structure of your appl
 
 
 
-<!-- Current Task -->
 #### 2.3 Build Reusable Static UI Components
-
 - **Action:**
   1.  Create the common, reusable UI components you identified in step 1.4 in your `src/components` folder.
   2.  Focus purely on their `visual presentation` and `basic structure`. Do **not** add any state management, API calls, or complex logic yet.
@@ -145,6 +143,9 @@ In this phase, you'll focus purely on creating the visual structure of your appl
     - Includes two static `Input` components for "Email" and "Password".
     - Includes a static `Button` component for submission.
     - Tailwind classes for form layout and styling.
+   
+    <!-- working here and need to apply context api -->
+
   - **`EventForm.jsx`:**
     - Receives a static `title` prop.
     - Renders a basic `<form>` element.
