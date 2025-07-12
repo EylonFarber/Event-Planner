@@ -4,6 +4,8 @@ import { useNavigate } from "react-router";
 
 export default function EventForm() {
   const navigate = useNavigate();
+const token = JSON.parse(localStorage.getItem("userToken"));
+console.log(token);
 
   function createEventHandler(e) {
     const titleInput = e.target.eventTitle.value;
@@ -15,16 +17,22 @@ export default function EventForm() {
     axios
       .post("http://localhost:3001/api/events", 
         {
-        title: "Event Title",
-        description: "Some Description for the Event",
-        date: "2025-07-10T19:18:13.625Z",
-        location: "Schloßbezirk 10, 76131 Karlsruhe",
+        title: titleInput,
+        description: descriptionInput,
+        date: dateInput,
+        location: locationInput,
         latitude: 8.404746955649602,
         longitude: 49.01438194665317,
-      })
+      },{
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+          })
       .then((x) => {
         if (x.data) {
           console.log(x.data);
+          alert(`Your ${titleInput} has been created`)
+          navigate('/')
         }
       }).catch((e) => {
         console.log("Error ");
