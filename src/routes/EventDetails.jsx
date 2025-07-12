@@ -2,17 +2,22 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import EventCard from "../components/EventCard";
+import { useAppContext } from "../context/appContext";
 
 export default function EventDetails() {
   const { id } = useParams();
   const [chosenEvent, setChosenEvent] = useState({});
+  const { Loading, setLoading } = useAppContext();
 
   function getChosenEvent() {
     axios.get(`http://localhost:3001/api/events/${id}`).then((x) => {
       setChosenEvent(x.data);
+      setLoading(false);
     });
   }
   useEffect(() => {
+    setLoading(true);
+
     getChosenEvent();
   }, []);
 

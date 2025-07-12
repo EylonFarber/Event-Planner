@@ -1,8 +1,11 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import { useAppContext } from "../context/appContext";
 
 export default function AuthForm({ isRegistered }) {
+  const { setError, setErrorMessage } = useAppContext();
+
   const navigate = useNavigate();
   function authFormhandler(e) {
     e.preventDefault();
@@ -37,9 +40,9 @@ export default function AuthForm({ isRegistered }) {
         }
       })
       .catch((e) => {
-        console.log("Error ");
         console.log(e);
-        navigate("/");
+        setErrorMessage("Email or password invalid");
+      setError(true)
       });
   }
   return (

@@ -13,14 +13,7 @@ import { FaAmilia } from "react-icons/fa6";
 export default function Footer() {
   return (
     <div>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/eventdetails/:id" element={<EventDetails />} />
-        <Route path="/createevent" element={<CreateEvent />} />
-        <Route path="/*" element={<Error />} />
-      </Routes>
+
 
       <ul className="flex justify-around items-center menu menu-horizontal bg-gray-300 rounded-box mt-6 h-24 w-full fixed left-0 bottom-0 md:hidden">
         <FooterIcon
