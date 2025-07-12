@@ -1,8 +1,11 @@
 import axios from "axios";
 import React from "react";
 import { useNavigate } from "react-router";
+import { useAppContext } from "../context/appContext";
 
 export default function EventForm() {
+      const { setAllEvents , getAllEvents} = useAppContext();
+  
   const navigate = useNavigate();
 const token = JSON.parse(localStorage.getItem("userToken"));
 console.log(token);
@@ -32,6 +35,7 @@ console.log(token);
         if (x.data) {
           console.log(x.data);
           alert(`Your ${titleInput} has been created`)
+          setAllEvents(getAllEvents())
           navigate('/')
         }
       }).catch((e) => {
