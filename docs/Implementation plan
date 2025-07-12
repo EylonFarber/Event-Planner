@@ -144,7 +144,6 @@ In this phase, you'll focus purely on creating the visual structure of your appl
     - Includes a static `Button` component for submission.
     - Tailwind classes for form layout and styling.
    
-    <!-- working here and need to apply context api -->
 
   - **`EventForm.jsx`:**
     - Receives a static `title` prop.

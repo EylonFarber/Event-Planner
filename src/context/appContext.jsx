@@ -10,7 +10,7 @@ export const AppProvider = ({ children }) => {
 
   function getAllEvents() {
     axios
-      .get("http://localhost:3001/api/events")
+      .get("http://localhost:3001/api/events?limit=1000")
       .then((x) => {setAllEvents(x.data.results)
         console.log(x.data.results)
       });
